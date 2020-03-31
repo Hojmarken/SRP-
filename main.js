@@ -8,24 +8,12 @@ function setup() {
 function importData() {
   d3.csv("wheat-seeds.csv").then(function(data) {
     let allData = formatData(data)
-    /* For graphing
     let splitData = divideDataSet(allData)
     let nn = new NeuraltNetværk([7, 3, 3])
     trainNetwork(nn, splitData[0])
+    //Åben konsollen for at se klassificeringsrate
     console.log(testNetwork(nn, splitData[1]))
     drawCostData()
-    */
-    let results = []
-    for (let i = 0; i < 50; i++) {
-      let splitData = divideDataSet(allData)
-      let nn = new NeuraltNetværk([7, 2, 3])
-      trainNetwork(nn, splitData[0])
-      results.push(testNetwork(nn, splitData[1]))
-      console.log(i, results[results.length - 1])
-    }
-    for (let result of results) {
-      console.log(result)
-    }
   })
 }
 
